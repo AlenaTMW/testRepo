@@ -8,7 +8,5 @@ import (
 
 func main() {
 	fmt.Print("Hello, world  ")
-
 	emoji.Println(":relaxed:")
-
 }
