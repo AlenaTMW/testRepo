@@ -4,8 +4,7 @@ import "fmt"
 
 func Number(z int) {
 
-	var n1 int = 0
-	var n2 int = 1
+	n1, n2 := 0, 1
 	var n int
 
 	for i := 1; i <= z; i++ {

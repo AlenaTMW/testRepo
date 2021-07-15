@@ -7,11 +7,7 @@ import (
 )
 
 func main() {
-	defer sayComplete()
+	defer fmt.Println("Completed")
 	fmt.Println("Hello!")
 	fibonacci.Number(5)
-}
-
-func sayComplete() {
-	fmt.Println("Completed")
 }
