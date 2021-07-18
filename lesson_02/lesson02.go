@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"lesson_02/lesson_02/fibonacci"
+	"lesson_02/fibonacci"
 )
 
 func main() {
