@@ -1,4 +1,4 @@
-package shapepkg
+package shapedescription
 
 import (
 	"fmt"
@@ -19,6 +19,10 @@ type Rectangle struct {
 	Width  float64
 }
 
+type Square struct {
+	Length float64
+}
+
 func DescribeShape(s Shape) {
 	fmt.Println(s)
 	fmt.Printf("Area: %.2f\n", s.Area())
@@ -32,6 +36,11 @@ func (c Circle) String() string {
 func (r Rectangle) String() string {
 	return fmt.Sprintf("\nRectangle with height %.2f and width %.2f", r.Height, r.Width)
 }
+
+func (q Square) String() string {
+	return fmt.Sprintf("\nSquare with length %.2f", q.Length)
+}
+
 func (C Circle) Area() float64 {
 	return math.Pi * math.Pow(C.Radius, 2)
 }
@@ -40,10 +49,17 @@ func (r Rectangle) Area() float64 {
 	return r.Height * r.Width
 }
 
+func (q Square) Area() float64 {
+	return math.Pow(q.Length, 2)
+}
+
 func (c Circle) Perimeter() float64 {
 	return 2 * math.Pi * c.Radius
 }
 
 func (r Rectangle) Perimeter() float64 {
 	return 2 * (r.Height + r.Width)
+}
+func (q Square) Perimeter() float64 {
+	return 4 * q.Length
 }
