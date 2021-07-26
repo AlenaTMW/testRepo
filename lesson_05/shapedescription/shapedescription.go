@@ -22,10 +22,19 @@ type Rectangle struct {
 
 func DescribeShape(s Shape) {
 	fmt.Println(s)
-	a, _ := s.Area()
-	fmt.Printf("Area: %.2f\n", a)
-	p, _ := s.Perimeter()
-	fmt.Printf("Perimeter: %.2f\n", p)
+	a, err := s.Area()
+	if err == nil {
+		fmt.Printf("Area: %.2f\n", a)
+	} else {
+		fmt.Println(err)
+	}
+	p, err := s.Perimeter()
+	if err == nil {
+		fmt.Printf("Perimeter: %.2f\n", p)
+	} else {
+		fmt.Println(err)
+	}
+
 }
 
 func (c Circle) String() string {
@@ -48,10 +57,7 @@ func (c Circle) Area() (float64, error) {
 }
 
 func (r Rectangle) Area() (float64, error) {
-	if r.Height == 0 || r.Width == 0 {
-		return 0.0, errors.New("value is invalid")
-	}
-	if r.Height < 0 || r.Width < 0 {
+	if r.Height <= 0 || r.Width <= 0 {
 		return 0.0, errors.New("value is invalid")
 	}
 	return r.Height * r.Width, nil
@@ -71,10 +77,7 @@ func (c Circle) Perimeter() (float64, error) {
 }
 
 func (r Rectangle) Perimeter() (float64, error) {
-	if r.Height == 0 || r.Width == 0 {
-		return 0.0, errors.New("value is invalid")
-	}
-	if r.Height < 0 || r.Width < 0 {
+	if r.Height <= 0 || r.Width <= 0 {
 		return 0.0, errors.New("value is invalid")
 	}
 	return 2 * (r.Height + r.Width), nil
