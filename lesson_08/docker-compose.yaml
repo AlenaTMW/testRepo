@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  app1:
+    image: docker.io/alenatmw/app1
+    ports:
+      - "8080:8080"
+    networks: ["alena"]
+
+  app2:
+    image: docker.io/alenatmw/app2
+    networks: ["alena"]
+
+networks:
+  alena:
